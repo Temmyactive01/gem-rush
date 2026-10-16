@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gem Rush</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #1b1c17; font-family: sans-serif; color: #fffefa; }
+    canvas { display: block; }
+    .startng-card { position: fixed; top: 16px; left: 16px; display: flex; align-items: center; gap: 12px;
+      padding: 8px 16px 8px 8px; border-radius: 999px; background: #292a23; color: #fffefa; z-index: 5; }
+    .startng-card img { width: 48px; height: 48px; border-radius: 50%; background: #d8fd71; }
+    .startng-card b { display: block; font-size: 16px; }
+    .startng-card span { font-size: 12px; opacity: .7; }
+    .startng-card button { margin-left: 8px; border: 0; border-radius: 999px; padding: 6px 12px; background: #d8fd71; font-weight: 700; cursor: pointer; }
+    #hud { position: fixed; top: 16px; right: 16px; text-align: right; font-size: 20px; font-weight: 700; z-index: 5; text-shadow: 0 1px 3px #000; }
+    #msg { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 5;
+      background: rgba(41,42,35,.92); padding: 24px 32px; border-radius: 16px; max-width: 80vw; }
+    #msg button { margin-top: 12px; border: 0; border-radius: 999px; padding: 10px 20px; background: #d8fd71; color: #1b1c17; font-weight: 700; font-size: 16px; cursor: pointer; }
+    #board { text-align: left; padding-left: 24px; margin: 8px 0 0; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="startng-card" id="player-card" hidden>
+    <img id="player-face" alt="">
+    <div><b id="player-name"></b><span id="player-account"></span></div>
+    <button id="player-sign-in" hidden>Sign in</button>
+  </div>
+  <div id="hud"><div id="score">Gems: 0</div><div id="time">Time: 30</div></div>
+  <div id="msg">
+    <h2 style="margin:0 0 8px">Gem Rush</h2>
+    <div>Collect as many gems as you can in 30 seconds.<br>Move with WASD or arrow keys, or drag on the screen.</div>
+    <button id="start">Play</button>
+    <ol id="board" hidden></ol>
+  </div>
+  <script type="importmap">{ "imports": { "three": "./lib/three.module.min.js" } }</script>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
